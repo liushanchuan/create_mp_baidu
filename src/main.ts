@@ -1,0 +1,19 @@
+import { createSSRApp } from 'vue'
+import App from './App.vue'
+import store from './store'
+import { routeInterceptor, requestInterceptor, prototypeInterceptor } from './interceptors'
+import 'virtual:uno.css'
+import '@/style/index.scss'
+import uviewPlus from 'uview-plus'
+
+export function createApp() {
+  const app = createSSRApp(App)
+  app.use(uviewPlus)
+  app.use(store)
+  app.use(routeInterceptor)
+  app.use(requestInterceptor)
+  app.use(prototypeInterceptor)
+  return {
+    app,
+  }
+}
