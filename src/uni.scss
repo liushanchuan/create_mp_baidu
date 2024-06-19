@@ -15,6 +15,15 @@
 
 @import 'uview-plus/theme';
 
+.u-checkbox-group {
+  .u-checkbox__icon-wrap {
+    margin: 0 !important;
+  }
+  .u-checkbox {
+    margin: 0 !important;
+  }
+}
+
 /* 颜色变量 */
 
 /* 行为相关颜色 */
@@ -31,6 +40,8 @@ $uni-text-color-placeholder: #808080;
 $uni-text-color-disable: #c0c0c0;
 
 /* 背景颜色 */
+$uni-bg-primary-color: #ffbc58;
+
 $uni-bg-color: #fff;
 $uni-bg-color-grey: #f8f8f8;
 $uni-bg-color-hover: #f1f1f1; // 点击状态颜色

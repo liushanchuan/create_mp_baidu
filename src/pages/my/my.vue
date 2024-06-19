@@ -1,4 +1,4 @@
-<route lang="json5" type="page">
+<route lang="json5" type="my">
 {
   layout: 'default',
   style: {
@@ -8,7 +8,7 @@
 </route>
 
 <template>
-  <view class=""></view>
+  <view class="">my111</view>
 </template>
 
 <script lang="ts" setup>

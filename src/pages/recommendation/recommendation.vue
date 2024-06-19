@@ -8,7 +8,7 @@
 </route>
 
 <template>
-  <view class=""></view>
+  <view class="">推荐</view>
 </template>
 
 <script lang="ts" setup>

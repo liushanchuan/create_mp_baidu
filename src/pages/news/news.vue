@@ -1,4 +1,4 @@
-<route lang="json5" type="page">
+<route lang="json5" type="news">
 {
   layout: 'default',
   style: {
@@ -8,7 +8,7 @@
 </route>
 
 <template>
-  <view class=""></view>
+  <view class="">news</view>
 </template>
 
 <script lang="ts" setup>

@@ -1,8 +1,6 @@
 <template>
-  <view>
+  <view class="h-100vh">
     <slot />
-    <wd-toast />
-    <wd-message-box />
   </view>
 </template>
 

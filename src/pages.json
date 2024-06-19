@@ -1,7 +1,6 @@
 {
   "globalStyle": {
     "navigationStyle": "default",
-    "navigationBarTitleText": "unibest",
     "navigationBarBackgroundColor": "#f8f8f8",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#FFFFFF"
@@ -16,32 +15,46 @@
     }
   },
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#018d71",
-    "backgroundColor": "#F8F8F8",
-    "borderStyle": "black",
-    "height": "50px",
-    "fontSize": "10px",
-    "iconWidth": "24px",
-    "spacing": "3px",
+    "color": "#333333",
+    "selectedColor": "#FFBC58",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "height": "98rpx",
+    "fontSize": "20rpx",
+    "iconWidth": "48rpx",
+    "spacing": "4rpx",
     "list": [
       {
-        "iconPath": "static/tabbar/home.png",
-        "selectedIconPath": "static/tabbar/homeHL.png",
-        "pagePath": "pages/index/index",
+        "iconPath": "static/images/common/home@2x.png",
+        "selectedIconPath": "static/images/variant/home-select@2x.png",
+        "pagePath": "pages/home/home",
         "text": "首页"
       },
       {
-        "iconPath": "static/tabbar/example.png",
-        "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/about/about",
-        "text": "关于"
+        "iconPath": "static/images/common/news@2x.png",
+        "selectedIconPath": "static/images/variant/news-select@2x.png",
+        "pagePath": "pages/news/news",
+        "text": "资讯"
+      },
+      {
+        "iconPath": "static/images/common/my@2x.png",
+        "selectedIconPath": "static/images/variant/my-select@2x.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
       }
     ]
   },
   "pages": [
     {
-      "path": "pages/index/index",
+      "path": "pages/login/login",
+      "type": "home",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/home/home",
       "type": "home",
       "style": {
         "navigationStyle": "custom",
@@ -51,8 +64,82 @@
     {
       "path": "pages/about/about",
       "type": "page",
+      "layout": "default",
       "style": {
-        "navigationBarTitleText": "关于"
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/base-info/base-info",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/detail/detail",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/favorite/favorite",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/login-code/login-code",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/my/my",
+      "type": "my",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/news/news",
+      "type": "news",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/protocols/protocols",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/recommendation/recommendation",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/search/search",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
       }
     }
   ],

@@ -8,7 +8,7 @@
 </route>
 
 <template>
-  <view class=""></view>
+  <view class="">协议</view>
 </template>
 
 <script lang="ts" setup>
