@@ -1,4 +1,4 @@
-<route lang="json5" type="home">
+<route lang="json5" type="page">
 {
   style: {
     navigationBarTitleText: '',
@@ -52,7 +52,7 @@
   </view>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="Login">
 //
 const checkboxValue1 = ref()
 </script>

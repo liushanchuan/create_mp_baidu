@@ -46,8 +46,9 @@
   },
   "pages": [
     {
-      "path": "pages/login/login",
+      "path": "pages/my/my",
       "type": "home",
+      "layout": "default",
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom"
@@ -94,20 +95,20 @@
       }
     },
     {
-      "path": "pages/login-code/login-code",
+      "path": "pages/login/login",
       "type": "page",
-      "layout": "default",
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom"
       }
     },
     {
-      "path": "pages/my/my",
-      "type": "my",
+      "path": "pages/login-code/login-code",
+      "type": "page",
       "layout": "default",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
       }
     },
     {
@@ -139,7 +140,8 @@
       "type": "page",
       "layout": "default",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
       }
     }
   ],
