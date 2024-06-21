@@ -8,7 +8,7 @@
 }
 </route>
 <template>
-  <view>
+  <z-paging ref="paging" v-model="dataPage" @query="queryList" :auto="false">
     <!-- 顶部内容 -->
     <view class="h-410rpx bg-[#FFDAA1] top relative">
       <view :style="style" class="u-page__tag-item m-l-60rpx">
@@ -24,6 +24,7 @@
         <up-swiper
           :list="bannerList"
           indicator
+          keyName="image"
           indicatorMode="dot"
           height="306rpx"
           radius="20rpx"
@@ -52,19 +53,37 @@
         />
       </view>
 
-      <view class="m-t-38rpx">
-        <list-item />
-        <!-- <z-paging ref="paging" v-model="dataPage" @query="queryList">
-          <view class="item" v-for="(item, index) in dataPage" :key="index">
-            <view class="item-title">{{ item.title }}</view>
+      <view class="m-t-38rpx"></view>
+    </view>
+
+    <view class="p-x-60rpx">
+      <view class="item" v-for="(item, index) in dataPage" :key="index">
+        <!-- item -->
+
+        <view class="flex justify-between items-center m-b-30rpx">
+          <up-image height="180rpx" width="222rpx" :src="useImagUrl(item.image)" />
+          <view class="w-372rpx h-150rpx py-14rpx flex flex-col justify-between">
+            <view class="title1">{{ item.name }}</view>
+            <view class="flex justify-between items-center">
+              <text class="title2">13.73w人读过</text>
+              <view class="flex">
+                <up-image height="28rpx" width="28rpx" class="m-r-8rpx" />
+                <!-- 点赞数量 -->
+                <text class="m-l-2rpx title3">{{ item.like }}</text>
+              </view>
+            </view>
           </view>
-        </z-paging> -->
+        </view>
       </view>
     </view>
-  </view>
+  </z-paging>
 </template>
 
 <script lang="ts" setup name="Home">
+import { getBanner, getList } from '@/service/page/index'
+import { SlideTag } from '@/service/page/types'
+import { useImagUrl } from '@/hooks/useImagUrl'
+
 const { height, top } = uni.getMenuButtonBoundingClientRect()
 
 const style = reactive({
@@ -82,11 +101,7 @@ const inputStyle = reactive({
 const value = ref()
 
 // 首页轮播
-const bannerList = ref([
-  'https://cdn.uviewui.com/uview/swiper/swiper3.png',
-  'https://cdn.uviewui.com/uview/swiper/swiper2.png',
-  'https://cdn.uviewui.com/uview/swiper/swiper1.png',
-])
+const bannerList = ref([])
 
 // 分类
 const categoryList = ref([
@@ -99,18 +114,27 @@ const categoryList = ref([
 
 // 列表分页数据
 const dataPage = ref([])
-function queryList(pageNo, pageSize) {
-  // this.$request
-  //   .queryList({ pageNo, pageSize })
-  //   .then((res) => {
-  //     // 请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
-  //     this.$refs.paging.complete(res.data.list)
-  //   })
-  //   .catch((res) => {
-  //     // 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
-  //     this.$refs.paging.complete(false)
-  //   })
+
+const paging = ref()
+async function queryList(page?: number, limit?: number, payload?: Record<string, any>) {
+  getList({ page, limit, ...payload })
+    .then((res) => {
+      paging.value.complete(res.data)
+    })
+    .catch((res) => {
+      paging.value.complete(false)
+    })
 }
+
+async function getBannerApi() {
+  const list = await getBanner({ tag: SlideTag.Index })
+  bannerList.value = list as any
+}
+
+onLoad(async () => {
+  // await getBannerApi()
+  await queryList()
+})
 </script>
 
 <style lang="scss">
@@ -126,6 +150,28 @@ function queryList(pageNo, pageSize) {
   font-size: 32rpx;
   font-weight: 500;
   line-height: 38rpx;
+  color: #333333;
+}
+
+.title1 {
+  height: 80rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 33rpx;
+  color: #333333;
+}
+.title2 {
+  height: 34rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  line-height: 28rpx;
+  color: #777777;
+}
+.title3 {
+  height: 34rpx;
+  font-size: 24rpx;
+  font-style: normal;
+  font-weight: 400;
   color: #333333;
 }
 </style>

@@ -47,7 +47,7 @@
   "pages": [
     {
       "path": "pages/my/my",
-      "type": "home",
+      "type": "my",
       "layout": "default",
       "style": {
         "navigationBarTitleText": "",
@@ -111,12 +111,14 @@
         "navigationStyle": "custom"
       }
     },
+  
     {
       "path": "pages/news/news",
       "type": "news",
       "layout": "default",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
       }
     },
     {
